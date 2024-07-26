@@ -3,8 +3,10 @@ package com.skillstorm.inventory_mgmt.models;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -14,14 +16,15 @@ import jakarta.validation.constraints.Min;
 public class Warehouse {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int warehouseId;
+
+    @OneToMany(mappedBy = "warehouse")
+    List<Inventory> inventory;
 
     @Min(value = 0)
     @Max(value = 250)
     private int capacity;
-
-    @ManyToMany(mappedBy = "warehouses")
-    List<Product> products;
 
     public Warehouse() {
     }
