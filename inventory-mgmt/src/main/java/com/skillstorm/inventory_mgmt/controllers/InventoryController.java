@@ -12,32 +12,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skillstorm.inventory_mgmt.models.Product;
-import com.skillstorm.inventory_mgmt.repositories.ProductRepository;
+import com.skillstorm.inventory_mgmt.models.Inventory;
+import com.skillstorm.inventory_mgmt.repositories.InventoryRepository;
 
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/products")
-public class ProductController {
-    private ProductRepository repo;
+@RequestMapping("/inventory")
+public class InventoryController {
+    private InventoryRepository repo;
 
-    public ProductController(ProductRepository repo){
+    public InventoryController(InventoryRepository repo){
         this.repo = repo;
     }
     
     @GetMapping()
-    public Iterable<Product> findAll(){
+    public Iterable<Inventory> findAll(){
         return repo.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> findById(@PathVariable int id){
-        Optional<Product> product = repo.findById(id);
-        if(product.isPresent()){
-            return ResponseEntity.ok(product.get());
+    public ResponseEntity<Inventory> findById(@PathVariable int id){
+        Optional<Inventory> inventory = repo.findById(id);
+        if(inventory.isPresent()){
+            return ResponseEntity.ok(inventory.get());
         }
         else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -46,21 +46,21 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Product create(@RequestBody Product product){
-        return repo.save(product);
+    public Inventory create(@RequestBody Inventory item){
+        return repo.save(item);
     }
 
     @PutMapping("/{id}")
-    public Product updateById(@PathVariable int id, @RequestBody Product updatedProduct) {
+    public Inventory updateById(@PathVariable int id, @RequestBody Inventory updatedItem) {
         return repo.findById(id)
-        .map(product -> {
-            product.setProductName(updatedProduct.getProductName());
-            product.setPrice(updatedProduct.getPrice());
-            product.setQuantity(updatedProduct.getQuantity());
-            return repo.save(product);
+        .map(item -> {
+            item.setItemName(updatedItem.getItemName());
+            item.setPrice(updatedItem.getPrice());
+            item.setQuantity(updatedItem.getQuantity());
+            return repo.save(item);
         })
         .orElseGet(() -> {
-            return repo.save(updatedProduct);
+            return repo.save(updatedItem);
         });
     }
 

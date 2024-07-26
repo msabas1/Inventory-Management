@@ -1,27 +1,34 @@
 package com.skillstorm.inventory_mgmt.models;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
 @Entity
-@Table(name = "products")
-public class Product {
+public class Inventory {
     
     @Id
-    private int productId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int inventoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouseId")
+    Warehouse warehouse;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    User user;
 
     @Column(length = 50)
-    private String productName;
+    private String itemName;
 
     @Min(value = 0)
     @Max(value = 1000)
@@ -31,27 +38,20 @@ public class Product {
     @Max(value = 100)
     private int quantity;
 
-    @ManyToMany
-    @JoinTable(
-        name = "inventory",
-        joinColumns = @JoinColumn(name = "productId"),
-        inverseJoinColumns = @JoinColumn(name = "warehouseId"))
-    List<Warehouse> warehouses;
-
-    public int getProductId() {
-        return productId;
+    public int getInventoryId() {
+        return inventoryId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setInventoryId(int inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public BigDecimal getPrice() {
