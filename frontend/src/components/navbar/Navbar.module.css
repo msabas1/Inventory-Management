@@ -1,0 +1,32 @@
+nav {
+    background-color: #61c071;
+    border-bottom: 5px solid #000000;
+    position:fixed;
+    width:22em;
+    top: 0;
+    right: 5px;
+    z-index: 5;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 0 20px;
+  }
+  li > a,
+  li > a:visited {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0 15px;
+    transition: color 0.25s;
+  }
+  li {
+    margin-left: 10px;
+  }
+  li> a:hover{
+    color: #000000;
+  }
+  .navLinks{
+    display: flex;
+  }
