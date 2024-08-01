@@ -1,0 +1,16 @@
+.warehouseContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .linkTag{
+    border-radius: 8px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+  }
+  .linkTag:hover {
+    background-color: rgb(0, 0, 0);
+  }
