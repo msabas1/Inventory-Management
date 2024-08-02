@@ -13,12 +13,12 @@ This full-stack inventory management solution allows you to manage warehouses an
 
 
 ## Technologies utilized:
-Frontend
+# Frontend
 - React + Vite
 - JS
 - CSS
 - HTML
-Backend
+# Backend
 - Java with Spring Boot
-DB
+# DB
 - PostgreSQL
