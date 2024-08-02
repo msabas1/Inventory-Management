@@ -1,6 +1,11 @@
-# Project 1 - Inventory Management
+# Warehouse Fleet - Inventory Management
 
-This is my full-stack Inventory Management solution consisting of:
+This full-stack inventory management solution allows you to manage warehouses and their items (CRUD operations)!
+
+Technologies utilized:
+Frontend
+- React + Vite
+Backend
 - Java with Spring Boot
+DB
 - PostgreSQL
-- React
