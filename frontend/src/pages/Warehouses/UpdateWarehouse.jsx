@@ -47,7 +47,7 @@ const UpdateWarehouse = (props) => {
             autoComplete="off"
           />
         </fieldset>
-        <button type="submit" className="formButton">Submit</button>
+        <button type="submit" className="formButton" >Submit</button>
       </form>
     </div>
   </main>

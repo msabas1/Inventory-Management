@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import styles from "./Warehouses.module.css";
 
 import * as WarehouseService from '../../services/WarehouseService'
 
@@ -9,7 +10,7 @@ const GetWarehouse = ({handleDeleteWarehouse}) => {
 
   useEffect(()=> {
     const fetchWarehouse = async () => {
-      const data = await WarehouseService.show(warehouseId)
+      const data = await WarehouseService.getWarehouseById(warehouseId)
       setWarehouse(data)
     }
     fetchWarehouse()
@@ -17,11 +18,10 @@ const GetWarehouse = ({handleDeleteWarehouse}) => {
 
   return ( 
     <main>
-      <h1>Warehouse: {warehouse.warehouseName}</h1>
+      <h1>{warehouse.warehouseName}</h1>
       <h2>Capacity: {warehouse.capacity}</h2>
-      <Link to={`/warehouses/warehouse/${warehouse.warehouseId}/edit`} state={warehouse}>Update</Link>
-      <p> ----------- </p>
-      <Link to={`/warehouses`} onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
+      <Link to={`/warehouses/warehouse/${warehouse.warehouseId}/update`} state={warehouse} className={styles.linkTag}>Update</Link>
+      <Link to={`/warehouses`} className={styles.linkTag} onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
     </main>
    );
 }

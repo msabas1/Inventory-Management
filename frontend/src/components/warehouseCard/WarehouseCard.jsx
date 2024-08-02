@@ -4,6 +4,7 @@ import styles from "./WarehouseCard.module.css";
 const WarehouseCard = (props) => {
   return (
     <Link to={`/warehouses/warehouse/${props.warehouse.warehouseId}`} className={styles.warehouseContainer}>
+    <p>Warehouse #{props.warehouse.warehouseId}</p>
     <p>{props.warehouse.warehouseName}</p>
     <p>Capacity: {props.warehouse.capacity}</p>
   </Link>

@@ -1,6 +1,6 @@
-const API_URL = "http://localhost:8080/warehouse";
+const API_URL = "http://localhost:8080/item";
 
-  async function getAllWarehouses() {
+ async function getAllItems() {
     try {
       const res = await fetch(API_URL)
       return res.json()
@@ -9,23 +9,23 @@ const API_URL = "http://localhost:8080/warehouse";
     }
   }
   
-  async function getWarehouseById(warehouseId){
+  async function getItemById(itemId){
     try{
-      const res = await fetch(`${API_URL}/${warehouseId}`)
+      const res = await fetch(`${API_URL}/${itemId}`)
       return res.json()
     }catch(error){
       console.log(error)
     }
   }
   
-  async function addWarehouse(warehouseFormData) {
+  async function addItem(itemFormData) {
     try {
       const res = await fetch(`${API_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(warehouseFormData),
+        body: JSON.stringify(itemFormData),
       })
       return res.json()
     } catch (error) {
@@ -33,14 +33,14 @@ const API_URL = "http://localhost:8080/warehouse";
     }
   }
   
-  async function updateWarehouse(warehouseFormData) {
+  async function updateItem(itemFormData) {
     try {
-      const res = await fetch(`${API_URL}/${warehouseFormData.warehouseId}`, {
+      const res = await fetch(`${API_URL}/${itemFormData.itemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(warehouseFormData),
+        body: JSON.stringify(itemFormData),
       })
       return res.json()
     } catch (error) {
@@ -48,9 +48,9 @@ const API_URL = "http://localhost:8080/warehouse";
     }
   }
   
-  async function deleteWarehouse(warehouseId){
+  async function deleteItem(itemId){
     try {
-      const res = await fetch(`${API_URL}/${warehouseId}`, {
+      const res = await fetch(`${API_URL}/${itemId}`, {
         method: 'DELETE',
       })
     } catch (error) {
@@ -59,4 +59,4 @@ const API_URL = "http://localhost:8080/warehouse";
   }
   
   
-export {getAllWarehouses, getWarehouseById, addWarehouse, updateWarehouse, deleteWarehouse};
+export {getAllItems, getItemById, addItem, updateItem, deleteItem};
