@@ -19,6 +19,7 @@ function App() {
   const [items, setItems] = useState([])
   const navigate = useNavigate();
 
+  //handle the warehouse functionalities
   useEffect(() => {
     const fetchAllWarehouses = async () => {
       const data = await warehouseService.getAllWarehouses()
@@ -54,6 +55,7 @@ function App() {
     navigate('/warehouses')
   }
 
+  //handle the item functionalities
   useEffect(() => {
     const fetchAllItems = async () => {
       const data = await itemService.getAllItems()
