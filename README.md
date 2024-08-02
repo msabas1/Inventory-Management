@@ -8,7 +8,7 @@ This full-stack inventory management solution allows you to manage warehouses an
 ## Warehouses Preview
 ![WarehouseFleetWarehousesPage](https://github.com/user-attachments/assets/64de21cd-cbf2-4d3c-976c-a94138d81d57)
 
-# Items Preview
+## Items Preview
 ![WarehouseFleetItems](https://github.com/user-attachments/assets/105bd1f4-4c58-4fbd-ad5f-801f2dd10f19)
 
 
