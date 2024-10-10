@@ -1,11 +1,15 @@
 package com.skillstorm.inventory_mgmt.services;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.inventory_mgmt.models.Warehouse;
 import com.skillstorm.inventory_mgmt.repositories.WarehouseRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class WarehouseService {
@@ -16,7 +20,7 @@ public class WarehouseService {
         this.repo = repo;
     }
 
-    public Iterable<Warehouse> findAll() {
+    public List<Warehouse> findAll() {
         return repo.findAll();
     }
 
@@ -28,9 +32,13 @@ public class WarehouseService {
         return repo.save(warehouse);
     }
 
-    public Warehouse update(int id, Warehouse warehouse) {
+    @Transactional
+    public int update(int id, Warehouse warehouse) {
+        if (!repo.existsById(id)) 
+            throw new NoSuchElementException("Warehouse with id " + id + " does not exist");
         warehouse.setWarehouseId(id);
-        return repo.save(warehouse);
+        repo.save(warehouse);
+        return id;
     }
 
      public Warehouse updateCapacityById(int id, String operation, int value) {
