@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale.Category;
 import java.util.Optional;
 
 import org.mockito.InjectMocks;
@@ -14,9 +13,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -24,8 +20,6 @@ import org.testng.annotations.Test;
 
 import com.skillstorm.inventory_mgmt.models.Item;
 import com.skillstorm.inventory_mgmt.services.ItemService;
-
-import jakarta.validation.Valid;
 
 public class ItemControllerTest {
 
