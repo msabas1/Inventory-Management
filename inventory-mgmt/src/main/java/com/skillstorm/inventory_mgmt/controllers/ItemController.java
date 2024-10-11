@@ -1,5 +1,6 @@
 package com.skillstorm.inventory_mgmt.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -31,8 +32,9 @@ public class ItemController {
     }
     
     @GetMapping()
-    public Iterable<Item> findAll(){
-        return service.findAll();
+    public ResponseEntity<List<Item>> findAll() {
+        List<Item> items = service.findAll();
+        return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -48,13 +50,15 @@ public class ItemController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Item create(@RequestBody Item item){
-        return service.save(item);
+    public ResponseEntity<Item> create(@RequestBody Item item){
+        Item newItem = service.save(item);
+        return new ResponseEntity<Item>(newItem, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public void updateById(@PathVariable int id, @RequestBody Item itemToUpdate) {
+    public ResponseEntity<Integer> updateById(@PathVariable int id, @RequestBody Item itemToUpdate) {
         service.updateItemById(id, itemToUpdate);
+        return new ResponseEntity<Integer>(id, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

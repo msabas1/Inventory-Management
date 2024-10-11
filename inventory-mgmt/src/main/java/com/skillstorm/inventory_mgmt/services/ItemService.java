@@ -1,11 +1,15 @@
 package com.skillstorm.inventory_mgmt.services;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.inventory_mgmt.models.Item;
 import com.skillstorm.inventory_mgmt.repositories.ItemRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class ItemService {
@@ -16,7 +20,7 @@ public class ItemService {
         this.repo = repo;
     }
 
-    public Iterable<Item> findAll() {
+    public List<Item> findAll() {
         return repo.findAll();
     }
 
@@ -28,9 +32,13 @@ public class ItemService {
         return repo.save(item);
     }
 
-    public Item updateItemById(int id, Item item) {
+    @Transactional
+    public int updateItemById(int id, Item item) {
+        if (!repo.existsById(id)) 
+            throw new NoSuchElementException("Item with id " + id + " does not exist");
         item.setItemId(id);
-        return repo.save(item);
+        repo.save(item);
+        return id;
     }
 
     public void deleteById(int id) {
