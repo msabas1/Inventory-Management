@@ -1,7 +1,6 @@
 package com.skillstorm.inventory_mgmt.models;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -29,29 +28,29 @@ public class ItemModelTest {
     // for the following properties: id, name, description, price, & quantity
     @Test
     public void idGetterSetter() {
-        assertEquals(item.getItemId(), 1);
+        Assert.assertEquals(item.getItemId(), 1);
         item.setItemId(2);
-        assertEquals(item.getItemId(), 2);
+        Assert.assertEquals(item.getItemId(), 2);
     }
 
     @Test
     public void nameGetterSetter() {
-        assertEquals(item.getName(), "testName");
+        Assert.assertEquals(item.getName(), "testName");
         item.setName("testName2");
-        assertEquals(item.getName(), "testName2");
+        Assert.assertEquals(item.getName(), "testName2");
     }
 
     @Test
     public void descriptionGetterSetter() {
-        assertEquals(item.getDescription(), "testDescription");
+        Assert.assertEquals(item.getDescription(), "testDescription");
         item.setDescription("testDescription2");
-        assertEquals(item.getDescription(), "testDescription2");
+        Assert.assertEquals(item.getDescription(), "testDescription2");
     }
     
     @Test
     public void priceGetterSetter() {
-        assertEquals(item.getPrice(), 20);
+        Assert.assertEquals(item.getPrice(), 20);
         item.setPrice(40);
-        assertEquals(item.getPrice(), 40);
+        Assert.assertEquals(item.getPrice(), 40);
     }
 }

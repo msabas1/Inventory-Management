@@ -1,10 +1,9 @@
 package com.skillstorm.inventory_mgmt.models;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Arrays;
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -44,30 +43,30 @@ public class WarehouseModelTest {
     // for the following properties: id, capacity, and warehouseName
     @Test
     public void idGetterSetter() {
-        assertEquals(warehouse.getWarehouseId(), 1);
+        Assert.assertEquals(warehouse.getWarehouseId(), 1);
         warehouse.setWarehouseId(2);
-        assertEquals(warehouse.getWarehouseId(), 2);
+        Assert.assertEquals(warehouse.getWarehouseId(), 2);
     }
     
     @Test
     public void capacityGetterSetter() {
-        assertEquals(warehouse.getCapacity(), 300);
+        Assert.assertEquals(warehouse.getCapacity(), 300);
         warehouse.setCapacity(400);
-        assertEquals(warehouse.getCapacity(), 400);
+        Assert.assertEquals(warehouse.getCapacity(), 400);
     }
 
     @Test
     public void nameGetterSetter() {
-        assertEquals(warehouse.getWarehouseName(), "testName");
+        Assert.assertEquals(warehouse.getWarehouseName(), "testName");
         warehouse.setWarehouseName("testName2");
-        assertEquals(warehouse.getWarehouseName(), "testName2");
+        Assert.assertEquals(warehouse.getWarehouseName(), "testName2");
     }
 
     // Tests if the warehouse has expected items list
     // and if updating that list with set() methods still returns expected values
     @Test
     public void itemListGetterSetter() {
-        assertEquals(warehouse.getItemList(), itemList);
+        Assert.assertEquals(warehouse.getItemList(), itemList);
 
         Item itemToAdd = new Item();
         itemToAdd.setItemId(4);
@@ -75,7 +74,7 @@ public class WarehouseModelTest {
 
         List<Item> productInventories2 = Arrays.asList(itemToAdd);
         warehouse.setItemList(productInventories2);
-        assertEquals(warehouse.getItemList(), productInventories2);
+        Assert.assertEquals(warehouse.getItemList(), productInventories2);
     }
 
     // Tests .toString() for our test Warehouse instance
@@ -84,6 +83,6 @@ public class WarehouseModelTest {
         System.out.println(warehouse);
         String expectedToString = "Warehouse [id=1" + ", itemList=" + itemList + ", capacity=300" + ", warehouseName=testName" + "]";
         System.out.println(expectedToString);
-        assertEquals(warehouse.toString(), expectedToString);
+        Assert.assertEquals(warehouse.toString(), expectedToString);
     }
 }
