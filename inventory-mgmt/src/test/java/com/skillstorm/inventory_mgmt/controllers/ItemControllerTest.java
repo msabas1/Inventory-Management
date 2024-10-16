@@ -1,7 +1,5 @@
 package com.skillstorm.inventory_mgmt.controllers;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
