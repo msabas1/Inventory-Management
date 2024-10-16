@@ -41,7 +41,8 @@ public class WarehouseService {
         return id;
     }
 
-     public Warehouse updateCapacityById(int id, String operation, int value) {
+    @Transactional
+     public int updateCapacityById(int id, String operation, int value) {
         Optional<Warehouse> optionalWarehouse = repo.findById(id);
 
         if (optionalWarehouse.isPresent()) {
@@ -54,13 +55,16 @@ public class WarehouseService {
                 throw new IllegalArgumentException("Invalid capacity update operation: " + operation);
             }
 
-            return repo.save(warehouse);
+            repo.save(warehouse);
+            return id;
         } else {
             throw new RuntimeException("Warehouse with id: " + id + " not found.");
         }
     }
 
-    public void deleteById(int id) {
+    @Transactional
+    public int deleteById(int id) {
         repo.deleteById(id);
+        return id;
     }
 }

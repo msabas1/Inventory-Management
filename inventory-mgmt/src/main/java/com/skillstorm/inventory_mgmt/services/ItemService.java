@@ -41,7 +41,9 @@ public class ItemService {
         return id;
     }
 
-    public void deleteById(int id) {
+    @Transactional
+    public int deleteById(int id) {
         repo.deleteById(id);
+        return id;
     }
 }

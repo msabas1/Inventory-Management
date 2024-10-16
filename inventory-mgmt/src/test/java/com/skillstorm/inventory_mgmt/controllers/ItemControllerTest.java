@@ -125,13 +125,12 @@ public class ItemControllerTest {
     // Tests if the mocked item service successfully deletes item with matching id after controller calls deleteById()
     @Test
     public void deleteItemTest() {
-        Item inputItem = new Item(1, "testItem", "itemDescription", 20, 5);
-        Optional<Item> expectedItem = Optional.of(inputItem);
+        Item inputItem = new Item();
+        when(itemService.deleteById(inputItem.getItemId()))
+        .thenReturn(inputItem.getItemId());
 
-        when(itemService.findById(inputItem.getItemId()))
-        .thenReturn(expectedItem);
-        
-        itemService.deleteById(inputItem.getItemId());
-        verify(itemService, times(1)).deleteById(inputItem.getItemId());
+        ResponseEntity<Integer> response = itemController.deleteById(inputItem.getItemId());
+
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
     }
 }

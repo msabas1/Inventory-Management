@@ -18,6 +18,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.skillstorm.inventory_mgmt.dtos.UpdateWarehouseCapacityDto;
 import com.skillstorm.inventory_mgmt.models.Warehouse;
 import com.skillstorm.inventory_mgmt.services.WarehouseService;
 
@@ -120,16 +121,27 @@ public class WarehouseControllerTest {
         Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
     }
 
+    // Tests if the mocked warehouse service successfully HTTP 200 OK after controller calls updateCapacityById()
+    @Test
+    public void updateWarehouseCapacitybyIdTest() {
+        Warehouse inputWarehouse = new Warehouse();
+        when(warehouseService.updateCapacityById(inputWarehouse.getWarehouseId(), "add", 100))
+        .thenReturn(inputWarehouse.getWarehouseId());
+
+        ResponseEntity<Integer> response = warehouseController.updateWarehouseCapacityById(inputWarehouse.getWarehouseId(), new UpdateWarehouseCapacityDto("add",100));
+
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
+    }
+
     // Tests if the mocked warehouse service successfully deletes warehouse with matching id after controller calls deleteById()
     @Test
     public void deleteWarehouseTest() {
-        Warehouse inputWarehouse = new Warehouse(1, 300, "testName");
-        Optional<Warehouse> expectedWarehouse = Optional.of(inputWarehouse);
+        Warehouse inputWarehouse = new Warehouse();
+        when(warehouseService.deleteById(inputWarehouse.getWarehouseId()))
+        .thenReturn(inputWarehouse.getWarehouseId());
 
-        when(warehouseService.findById(inputWarehouse.getWarehouseId()))
-        .thenReturn(expectedWarehouse);
-        
-        warehouseService.deleteById(inputWarehouse.getWarehouseId());
-        verify(warehouseService, times(1)).deleteById(inputWarehouse.getWarehouseId());
+        ResponseEntity<Integer> response = warehouseController.deleteById(inputWarehouse.getWarehouseId());
+
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
     }
 }

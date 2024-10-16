@@ -64,13 +64,15 @@ public class WarehouseController {
     }
 
     @PatchMapping("/{id}")
-    public void updateWarehouseCapacityById(@PathVariable int id, @RequestBody UpdateWarehouseCapacityDto capacityUpdate){
+    public ResponseEntity<Integer> updateWarehouseCapacityById(@PathVariable int id, @RequestBody UpdateWarehouseCapacityDto capacityUpdate){
         service.updateCapacityById(id, capacityUpdate.getOperation(), capacityUpdate.getValue());
+        return new ResponseEntity<Integer>(id, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable int id){
+    public ResponseEntity<Integer> deleteById(@PathVariable int id){
         service.deleteById(id);
+        return new ResponseEntity<Integer>(id, HttpStatus.NO_CONTENT);
     }
 }
