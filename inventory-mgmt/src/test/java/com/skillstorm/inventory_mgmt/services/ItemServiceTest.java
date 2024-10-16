@@ -139,5 +139,7 @@ public class ItemServiceTest {
         
         itemRepository.deleteById(inputItem.getItemId());
         verify(itemRepository, times(1)).deleteById(inputItem.getItemId());
+    
+        Assert.assertEquals(inputItem.getItemId(), itemService.deleteById(1));
     }
 }

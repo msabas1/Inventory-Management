@@ -125,6 +125,74 @@ public class WarehouseServiceTest {
         });
     }
 
+    // Tests if the mocked warehouse repo successfully return expected response
+    // after service calls updateCapacityById() add
+    @Test
+    public void updateCapacityByIdWarehouseTestAdd() {
+        Warehouse inputWarehouse = new Warehouse(1, 111, "testName");
+        when(warehouseRepository.save(inputWarehouse))
+        .thenReturn(inputWarehouse);
+
+        when(warehouseRepository.existsById(inputWarehouse.getWarehouseId()))
+        .thenReturn(true);
+        
+        System.out.println(inputWarehouse);
+
+        int response = warehouseService.updateCapacityById(inputWarehouse.getWarehouseId(), "add", 100);
+
+        Assert.assertEquals(response, inputWarehouse.getWarehouseId());
+    }
+
+    // Tests if the mocked warehouse repo successfully return expected response
+    // after service calls updateCapacityById() subtract
+    @Test
+    public void updateCapacityByIdWarehouseTestSubtract() {
+        Warehouse inputWarehouse = new Warehouse(1, 111, "testName");
+        when(warehouseRepository.save(inputWarehouse))
+        .thenReturn(inputWarehouse);
+
+        when(warehouseRepository.existsById(inputWarehouse.getWarehouseId()))
+        .thenReturn(true);
+        
+        System.out.println(inputWarehouse);
+
+        int response = warehouseService.updateCapacityById(inputWarehouse.getWarehouseId(), "subtract", 5);
+
+        Assert.assertEquals(response, inputWarehouse.getWarehouseId());
+    }
+
+    // Tests if the mocked warehouse repo successfully return expected response
+    // after service calls updateCapacityById() subtract
+    @Test
+    public void updateCapacityByIdWarehouseTestInvalidOperation() {
+        Warehouse inputWarehouse = new Warehouse(1, 111, "testName");
+        when(warehouseRepository.save(inputWarehouse))
+        .thenReturn(inputWarehouse);
+
+        when(warehouseRepository.existsById(inputWarehouse.getWarehouseId()))
+        .thenReturn(true);
+
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            warehouseService.updateCapacityById(inputWarehouse.getWarehouseId(), "invalidOperation", 5);
+        });
+    }
+
+    // Tests if the mocked warehouse repo successfully throws exception
+    // after service calls updateCapacityById() for non-existing warehouse
+    @Test
+    public void updateCapacityByIdWarehouseTestInvalidWarehouse() {
+        Warehouse inputWarehouse = new Warehouse(1, 111, "testName");
+        when(warehouseRepository.save(inputWarehouse))
+        .thenReturn(inputWarehouse);
+
+        when(warehouseRepository.existsById(2))
+        .thenReturn(false);
+        
+        Assert.assertThrows(RuntimeException.class, () -> {
+            warehouseService.updateCapacityById(2, "subtract", 5);
+        });
+    }
+
     // Tests if the mocked warehouse repo successfully deletes product with matching id after service calls deleteById()
     @Test
     public void deleteWarehouseTest() {
@@ -136,5 +204,7 @@ public class WarehouseServiceTest {
         
         warehouseRepository.deleteById(inputWarehouse.getWarehouseId());
         verify(warehouseRepository, times(1)).deleteById(inputWarehouse.getWarehouseId());
+    
+        Assert.assertEquals(inputWarehouse.getWarehouseId(), warehouseService.deleteById(1));
     }
 }
