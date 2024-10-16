@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-64cbdac3-abf5-438d-9225-f27f001559f0"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.058">
+    <properties></properties>
+
+
+
+            <testcase
+                name="nameGetterSetter"
+                time="0.001"
+                classname="com.skillstorm.inventory_mgmt.models.ItemModelTest">
+            </testcase>
+            <testcase
+                name="descriptionGetterSetter"
+                time="0.057"
+                classname="com.skillstorm.inventory_mgmt.models.ItemModelTest">
+            </testcase>
+            <testcase
+                name="priceGetterSetter"
+                time="0.000"
+                classname="com.skillstorm.inventory_mgmt.models.ItemModelTest">
+            </testcase>
+            <testcase
+                name="idGetterSetter"
+                time="0.000"
+                classname="com.skillstorm.inventory_mgmt.models.ItemModelTest">
+            </testcase>
+</testsuite>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestNGTest-8c3fb936-2dee-4474-a164-0c1b4ecd25ee"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.017">
+    <properties></properties>
+
+
+
+            <testcase
+                name="findItemByIdTest"
+                time="0.001"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+            <testcase
+                name="findAllItemsTest"
+                time="0.001"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+            <testcase
+                name="updateItemInvalidTest"
+                time="0.002"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+            <testcase
+                name="deleteItemTest"
+                time="0.001"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+            <testcase
+                name="updateItemTest"
+                time="0.010"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+            <testcase
+                name="createItemTest"
+                time="0.002"
+                classname="com.skillstorm.inventory_mgmt.services.ItemServiceTest">
+            </testcase>
+</testsuite>
