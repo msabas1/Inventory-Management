@@ -20,8 +20,8 @@ const GetItem = ({handleDeleteItem}) => {
     <main>
       <h1>{item.name}</h1>
       <h2>{item.description}, ${item.price}, Quantity: {item.quantity}</h2>
-      <Link to={`/items/item/${item.itemId}/update`} state={item} className={styles.linkTag}>Update</Link>
-      <Link to={`/items`} className={styles.linkTag} onClick={() => handleDeleteItem(itemId) }>Delete</Link>
+      <Link to={`/items/item/${item.itemId}/update`} state={item} className="linkTag">Update</Link>
+      <Link to={`/items`} className="linkTag" onClick={() => handleDeleteItem(itemId) }>Delete</Link>
     </main>
    );
 }

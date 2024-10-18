@@ -8,22 +8,35 @@ const Items = (props) => {
       <main>
         <h2>
           There are no items.
-          <Link to="/items/item/new" className={styles.linkTag}>Add Item
+          <Link to="/items/item/new" className="linkTag">Add Item
           </Link>
         </h2>
       </main>
     )
 
     return(
-      <main>
-        <Link to="/items/item/add" className={styles.linkTag}>Add Item
-        </Link>
-        <div className={styles.itemContainer}>
-          {props.items.map((item) => (
-            <ItemCard key={item.itemId} item={item} />
-          ))}
-        </div>
+      <>
+      <main className={styles.itemMain}>
+      <Link to="/items/item/add" className="linkTag">Add Item</Link>
+        <table className={styles.itemTable}>
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Warehouse</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.items.map(item => (
+              <ItemCard key={item.itemId} item={item}/>
+            ))}
+          </tbody>
+        </table>
       </main>
+    </>
   )
 }
 

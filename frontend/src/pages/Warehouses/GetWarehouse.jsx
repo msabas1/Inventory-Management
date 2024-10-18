@@ -20,8 +20,8 @@ const GetWarehouse = ({handleDeleteWarehouse}) => {
     <main>
       <h1>{warehouse.warehouseName}</h1>
       <h2>Capacity: {warehouse.capacity}</h2>
-      <Link to={`/warehouses/warehouse/${warehouse.warehouseId}/update`} state={warehouse} className={styles.linkTag}>Update</Link>
-      <Link to={`/warehouses`} className={styles.linkTag} onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
+      <Link to={`/warehouses/warehouse/${warehouse.warehouseId}/update`} state={warehouse} className="linkTag">Update</Link>
+      <Link to={`/warehouses`} className="linkTag" onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
     </main>
    );
 }
