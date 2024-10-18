@@ -37,17 +37,6 @@ const Warehouses = (props) => {
         </table>
       </main>
   )
-
-    return(
-      <main>
-        <Link to="/warehouses/warehouse/add" className="linkTag">Add Warehouse</Link>
-        <div className={styles.warehouseContainer}>
-          {props.warehouses.map((warehouse) => (
-            <WarehouseCard key={warehouse.warehouseId} warehouse={warehouse} />
-          ))}
-        </div>
-      </main>
-  )
 }
 
 export default Warehouses;
