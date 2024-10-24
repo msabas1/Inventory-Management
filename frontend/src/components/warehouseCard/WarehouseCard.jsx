@@ -6,9 +6,9 @@ const WarehouseCard = (props) => {
     <>
       <tr>
         <td><Link to={`/warehouses/warehouse/${props.warehouse.warehouseId}`} className="linkTag"></Link></td>
-        <td>Warehouse #{props.warehouse.warehouseId}</td>
-        <td>{props.warehouse.warehouseName}</td>
-        <td>{props.warehouse.capacity}</td>
+        <td id="warehouse-table-id">{props.warehouse.warehouseId}</td>
+        <td id="warehouse-table-name">{props.warehouse.warehouseName}</td>
+        <td id="warehouse-table-capacity">{props.warehouse.capacity}</td>
       </tr>
     </>
    );

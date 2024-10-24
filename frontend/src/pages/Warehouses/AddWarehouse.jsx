@@ -21,7 +21,7 @@ const AddWarehouse = (props) => {
       <main >
         <h1>Add Warehouse</h1>
         <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id="add-warehouse-form-modal">
           <fieldset>
               <legend>Name</legend>
               <input

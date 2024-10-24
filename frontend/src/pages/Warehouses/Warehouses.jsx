@@ -36,19 +36,19 @@ const Warehouses = ({warehouses}) => {
   return(
     <main className={styles.warehouseMain}>
       <div className="selectContainer">
-      <Link to="/warehouses/warehouse/add" className="linkTag">Add Warehouse</Link>
-          <select name="sort" id="sort" onChange={handleSort} className={styles.warehouseTable}>
+      <Link to="/warehouses/warehouse/add" className="linkTag" id="add-warehouse-btn">Add Warehouse</Link>
+          <select name="sort" id="select-sort-warehouses" onChange={handleSort} className={styles.warehouseTable}>
             <option value="sortBy">Sort By:</option>
             <option value="warehouseId">ID</option>
             <option value="warehouseName">Name</option>
             <option value="capacity">Capacity</option>
           </select>
       </div>
-      <table className={styles.warehouseTable}>
+      <table className={styles.warehouseTable} id="warehouses-table">
         <thead>
           <tr>
             <th>Select</th>
-            <th>ID</th>
+            <th>Warehouse ID#</th>
             <th>Name</th>
             <th>Capacity</th>
           </tr>
