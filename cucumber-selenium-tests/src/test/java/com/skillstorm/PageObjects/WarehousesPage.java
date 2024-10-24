@@ -5,21 +5,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.skillstorm.PageObjects.Interfaces.Component;
 
 public class WarehousesPage extends Page {
     //#region Static Fields
-
-    // URLs
-    private static final String url = "http://localhost:5173/warehouses";
-
+    
     // Names
     public static final String BTN_ADDWAREHOUSE_NAME = "Add Warehouse Button";
     public static final String SELECT_SORTWAREHOUSES_NAME = "Sort Warehouses Dropdown";
@@ -41,6 +38,9 @@ public class WarehousesPage extends Page {
     @FindBy(id = TABLE_WAREHOUSESLIST_ID)
     private WebElement tableWarehousesList;
 
+    @FindBy(id = TABLE_WAREHOUSESLIST_ID)
+    private List<WebElement> tableElements;
+
     /**
      * Initializes the driver and sets an implicit wait 
      */
@@ -57,16 +57,79 @@ public class WarehousesPage extends Page {
     }
 
     /**
-     * navigating to the warehouse page
+     * select sort by warehouse
      * pause execution for 1000 mili sec before navigating
      */
-    public void get() {
+    public void selectSortBy(String selectOption) {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        this.driver.get(url);
+        Select select = new Select(selectSortWarehouses);
+        select.selectByVisibleText(selectOption);
+    }
+
+    public boolean isOrdered(String sortOption) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(tableElements.size() == 1)
+        {
+            return true;
+        }
+        // sort by ID
+        boolean found = true;
+        int prev = 0;
+        if(sortOption.equals("ID"))
+        {
+            for(WebElement list:tableElements){
+                WebElement wID = list.findElement(By.id("warehouse-table-id"));
+                int current = Integer.parseInt(wID.getText());
+                System.out.println("Current id is: " + current);
+                if(current <= prev){
+                    return false;
+                }
+                else{
+                    prev = current;
+                }
+            }
+        }
+        // sort by Name
+        else if(sortOption.equals("Name"))
+        {
+            for(WebElement list:tableElements){
+                WebElement wCapacity = list.findElement(By.id("warehouse-table-name"));
+                int current = Integer.parseInt(wCapacity.getText());
+                System.out.println("Current name is: " + current);
+                if(current < prev){
+                    return false;
+                }
+                else{
+                    prev = current;
+                }
+            }
+        }
+        // sort by Capacity
+        else if(sortOption.equals("Capacity"))
+        {
+            for(WebElement list:tableElements){
+                WebElement wCapacity = list.findElement(By.id("warehouse-table-capacity"));
+                int current = Integer.parseInt(wCapacity.getText());
+                System.out.println("Current capacity is: " + current);
+                if(current < prev){
+                    return false;
+                }
+                else{
+                    prev = current;
+                }
+            }
+        }
+        
+        return found;
     }
 
     @Override
