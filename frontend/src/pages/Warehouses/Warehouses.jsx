@@ -13,29 +13,29 @@ const Warehouses = (props) => {
       </main>
     )
 
-    return(
-      <main className={styles.warehouseMain}>
-        <div className="selectContainer">
-        <Link to="/warehouses/warehouse/add" className="linkTag">Add Warehouse</Link>
-        </div>
-        <table className={styles.warehouseTable}>
-          <thead>
-            <tr>
-              <th>Select</th>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Capacity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <>
-              {props.warehouses.map((warehouse) => (
-                <WarehouseCard key={warehouse.warehouseId} warehouse={warehouse} />
-              ))}
-            </>   
-          </tbody>
-        </table>
-      </main>
+  return(
+    <main className={styles.warehouseMain}>
+      <div className="selectContainer">
+      <Link to="/warehouses/warehouse/add" className="linkTag">Add Warehouse</Link>
+      </div>
+      <table className={styles.warehouseTable}>
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <>
+            {props.warehouses.map((warehouse) => (
+              <WarehouseCard key={warehouse.warehouseId} warehouse={warehouse} />
+            ))}
+          </>   
+        </tbody>
+      </table>
+    </main>
   )
 }
 
