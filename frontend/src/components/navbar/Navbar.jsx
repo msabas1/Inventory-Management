@@ -9,17 +9,18 @@ const NavBar = () => {
     <>
       <nav>
         <ul>
-          <div>
-            <li>
-              <NavLink to='/' className={location.pathname === '/' ? 'active' : ''}>Home</NavLink>
-            </li>
-          </div>
           <div className={styles.navLinks}>
+            <li>
+              <NavLink to='/' aria-current="home" className={location.pathname === '/' ? 'active' : ''}>Home</NavLink>
+            </li>
             <li>
               <NavLink to="/warehouses"  className={location.pathname === '/warehouses' ? 'active' : ''}>Warehouses</NavLink>
             </li>
             <li>
               <NavLink to="/items" className={location.pathname === '/items' ? 'active' : ''}>Items</NavLink>
+            </li>
+            <li>
+              <NavLink to="/warehouses"  className={location.pathname === '/warehouses' ? 'active' : ''}>Skip to content</NavLink>
             </li>
           </div>
         </ul>
