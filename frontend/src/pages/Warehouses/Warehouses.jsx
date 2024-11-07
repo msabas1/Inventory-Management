@@ -35,10 +35,10 @@ const Warehouses = ({warehouses}) => {
 
   return(
     <main className={styles.warehouseMain}>
-      <div className="selectContainer">
       <Link to="/warehouses/warehouse/add" className="linkTag" id="add-warehouse-btn">Add Warehouse</Link>
-          <select name="sort" id="select-sort-warehouses" onChange={handleSort} className={styles.warehouseTable}>
-            <option value="sortBy">Sort By:</option>
+      <div className="selectContainer">
+        <label for="sort-warehouses">Sort warehouses by:</label>
+          <select name="sort" id="sort-warehouses" onChange={handleSort}>
             <option value="warehouseId">ID</option>
             <option value="warehouseName">Name</option>
             <option value="capacity">Capacity</option>

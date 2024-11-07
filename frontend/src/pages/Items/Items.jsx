@@ -37,10 +37,10 @@ const Items = ({items}) => {
     return(
       <>
       <main className={styles.itemMain}>
-      <div className="selectContainer">
       <Link to="/items/item/add" className="linkTag">Add Item</Link>
-          <select name="sort" id="sort" onChange={handleSort} className={styles.itemTable}>
-            <option value="sortBy">Sort By:</option>
+      <div className="selectContainer">
+          <label for="sort-items">Sort items by:</label>
+          <select name="sort" id="sort-items" onChange={handleSort}>
             <option value="itemName">Name</option>
             <option value="price">Price</option>
             <option value="quantity">Quantity</option>
