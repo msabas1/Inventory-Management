@@ -20,8 +20,8 @@ const GetItem = ({handleDeleteItem}) => {
     <main>
       <h1>{item.name}</h1>
       <h2>{item.description}, ${item.price}, Quantity: {item.quantity}</h2>
-      <Link to={`/items/item/${item.itemId}/update`} state={item} className="linkTag">Update</Link>
-      <Link to={`/items`} className="linkTag" onClick={() => handleDeleteItem(itemId) }>Delete</Link>
+      <Link aria-label="Update this item" to={`/items/item/${item.itemId}/update`} state={item} className="linkTag">Update</Link>
+      <Link aria-label="Delete this item" to={`/items`} className="linkTag" onClick={() => handleDeleteItem(itemId) }>Delete</Link>
     </main>
    );
 }

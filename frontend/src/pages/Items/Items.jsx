@@ -37,7 +37,7 @@ const Items = ({items}) => {
     return(
       <>
       <main className={styles.itemMain}>
-      <Link to="/items/item/add" className="linkTag">Add Item</Link>
+      <Link aria-label="Navigate to Add Item Page" to="/items/item/add" className="linkTag">Add Item</Link>
       <div className="selectContainer">
           <label for="sort-items">Sort items by:</label>
           <select name="sort" id="sort-items" onChange={handleSort}>

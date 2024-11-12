@@ -81,7 +81,7 @@ const UpdateItem = (props) => {
                   ))}
                 </select>
               </fieldset>
-                <button type="submit" className="formButton">Submit</button>
+                <button aria-label="Submit update to this item" type="submit" className="formButton">Submit</button>
               </form>
             </div>
           </main>

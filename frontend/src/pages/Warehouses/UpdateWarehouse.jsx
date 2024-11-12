@@ -47,7 +47,7 @@ const UpdateWarehouse = (props) => {
             autoComplete="off"
           />
         </fieldset>
-        <button type="submit" className="formButton" >Submit</button>
+        <button aria-label="Submit update to this warehouse" type="submit" className="formButton" >Submit</button>
       </form>
     </div>
   </main>

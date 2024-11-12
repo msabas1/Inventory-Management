@@ -35,7 +35,7 @@ const Warehouses = ({warehouses}) => {
 
   return(
     <main className={styles.warehouseMain}>
-      <Link to="/warehouses/warehouse/add" className="linkTag" id="add-warehouse-btn">Add Warehouse</Link>
+      <Link aria-label="Navigate to Add Warehouse Page" to="/warehouses/warehouse/add" className="linkTag" id="add-warehouse-btn">Add Warehouse</Link>
       <div className="selectContainer">
         <label for="sort-warehouses">Sort warehouses by:</label>
           <select name="sort" id="sort-warehouses" onChange={handleSort}>

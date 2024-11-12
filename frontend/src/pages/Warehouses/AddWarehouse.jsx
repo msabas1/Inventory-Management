@@ -46,7 +46,7 @@ const AddWarehouse = (props) => {
                 autoComplete="off"
               />
             </fieldset>
-            <button type="submit" className="formButton">Submit</button>
+            <button aria-label="Submit Add Warehouse" type="submit" className="formButton">Submit</button>
           </form>
         </div>
       </main>
