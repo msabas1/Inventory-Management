@@ -5,7 +5,7 @@ const ItemCard = (props) => {
   return ( 
     <>
       <tr>
-        <td><Link to={`/items/item/${props.item.itemId}`} className="linkTag" id="get-item-link"></Link></td>
+        <td><Link to={`/items/item/${props.item.itemId}`} className="linkTag" id="get-item-link">Navigate</Link></td>
         <td>{props.item.name}</td>
         <td>{props.item.description}</td>
         <td>${props.item.price}</td>
