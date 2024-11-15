@@ -23,7 +23,7 @@ const UpdateItem = (props) => {
           <main >
             <h1>Update Item</h1>
             <div>
-              <form onSubmit={handleSubmit}>
+              <form aria-label="Update Item Form" onSubmit={handleSubmit}>
               <fieldset>
                   <legend>Name</legend>
                   <input
@@ -74,7 +74,7 @@ const UpdateItem = (props) => {
                 </fieldset>
                 <fieldset>
                 <legend>Warehouse ID</legend>
-                <select name="warehouse" onChange={handleChange}>
+                <select aria-label="Select Warehouse for the item" name="warehouse" onChange={handleChange}>
                   <option value={formData.warehouseId}>--</option>
                   {props.warehouses.map(warehouse => (
                     <option key={warehouse.warehouseId} value={formData.warehouseId} onChange={handleChange}>{warehouse.warehouseId}</option>
