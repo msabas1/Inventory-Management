@@ -6,13 +6,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class WarehousesPage extends Page {
     //#region Static Fields
@@ -24,7 +27,7 @@ public class WarehousesPage extends Page {
 
     // IDs
     public static final String BTN_ADDWAREHOUSE_ID = "add-warehouse-btn";
-    public static final String SELECT_SORTWAREHOUSES_ID = "select-sort-warehouses";
+    public static final String SELECT_SORTWAREHOUSES_ID = "sort-warehouses";
     public static final String TABLE_WAREHOUSESLIST_ID = "warehouses-table";
 
     //#endregion
@@ -130,6 +133,30 @@ public class WarehousesPage extends Page {
         }
         
         return found;
+    }
+
+    public void tabTo(Actions actions, WebElement elementToTabTo){
+        WebElement focusedElement = driver.switchTo().activeElement();
+
+        for (int i = 0; i < 10; i += 1) {
+            if (elementToTabTo.equals(focusedElement)) {
+                break;
+            }
+            actions.sendKeys(Keys.TAB).pause(Duration.ofMillis(200)).perform();
+            focusedElement = driver.switchTo().activeElement();
+        }
+
+        Assert.assertEquals(elementToTabTo, focusedElement);
+    }
+
+    public WebElement getWarehousesSortDropdown() {
+        return selectSortWarehouses;
+    }
+
+    public void pressArrowKeyNTimes(Actions actions, Keys key, int n) {
+        for (int t = 0; t < n; t += 1) {
+            actions.sendKeys(key).pause(Duration.ofMillis(200)).perform();
+        }
     }
 
     @Override
