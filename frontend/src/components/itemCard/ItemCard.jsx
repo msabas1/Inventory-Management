@@ -6,11 +6,11 @@ const ItemCard = (props) => {
     <>
       <tr>
         <td><Link to={`/items/item/${props.item.itemId}`} className="linkTag" id="get-item-link">Navigate</Link></td>
-        <td>{props.item.name}</td>
-        <td>{props.item.description}</td>
-        <td>${props.item.price}</td>
-        <td>{props.item.quantity}</td>
-        <td>Located at Warehouse: #{props.item.warehouse}</td>
+        <td id="item-table-name">{props.item.name}</td>
+        <td id="item-table-description">{props.item.description}</td>
+        <td id="item-table-price">${props.item.price}</td>
+        <td id="item-table-quantity">{props.item.quantity}</td>
+        <td id="item-table-warehouse-location">Located at Warehouse: #{props.item.warehouse}</td>
       </tr>
     </>
    );
