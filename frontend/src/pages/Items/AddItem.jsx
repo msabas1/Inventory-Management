@@ -24,7 +24,7 @@ const AddItem = (props) => {
       <main >
         <h1>Add Item</h1>
         <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id="add-item-form-modal">
           <fieldset>
               <legend>Name</legend>
               <input
