@@ -82,7 +82,7 @@ const AddItem = (props) => {
                   ))}
                 </select>
               </fieldset>
-            <button aria-label="Submit Add Item" type="submit" className="formButton">Submit</button>
+            <button aria-label="Submit Add Item" type="submit" className="formButton" id="submit-add-item-btn">Submit</button>
           </form>
         </div>
       </main>
