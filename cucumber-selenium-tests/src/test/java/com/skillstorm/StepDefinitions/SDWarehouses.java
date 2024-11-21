@@ -63,9 +63,22 @@ public class SDWarehouses {
         this.warehousesPage.tabTo(actions, driver.findElement(By.id("sort-warehouses")));
     }
 
-    @When("I press the arrow key down one time on the Warehouses Sort dropdown")
+    @When("I press the arrow key down two times and up one time on the Warehouses Sort dropdown")
     public void whenIPressTheArrowKeyDownOneTimeOnTheWarehousesSortDropdown(){
-        this.warehousesPage.pressArrowKeyNTimes(actions, Keys.ARROW_DOWN, 1);
+        this.warehousesPage.pressArrowKeyNTimes(actions, Keys.ARROW_DOWN, 2);
+        this.warehousesPage.pressArrowKeyNTimes(actions, Keys.ARROW_UP, 1);
+    }
+
+    @When("I tab to click the Add Warehouses button")
+    public void whenITabToTheAddWarehousesButton(){
+        this.warehousesPage.tabTo(actions, driver.findElement(By.id("add-warehouse-btn")));
+        driver.findElement(By.id("add-warehouse-btn")).sendKeys(Keys.ENTER);
+    }
+    
+    @When("I tab to Navigate to a warehouse")
+    public void whenITabToNavigateToAWarehouse(){
+        this.warehousesPage.tabTo(actions, driver.findElement(By.id("get-warehouse-link")));
+        driver.findElement(By.id("get-warehouse-link")).sendKeys(Keys.ENTER);
     }
 
     @Then("I can see the add warehouse form modal")
@@ -81,6 +94,11 @@ public class SDWarehouses {
     @Then("I can see the Add Warehouse button")
     public void thenICanSeeTheAddWarehouseButton(){
         Assert.assertTrue(driver.findElement(By.id("add-warehouse-btn")).isDisplayed());
+    }
+
+    @Then("I can see the Update Warehouse button")
+    public void thenICanSeeTheUpdateWarehouseButton(){
+        Assert.assertTrue(driver.findElement(By.id("update-warehouse-btn")).isDisplayed());
     }
 
     @Then("the warehouses sort dropdown will be focused")

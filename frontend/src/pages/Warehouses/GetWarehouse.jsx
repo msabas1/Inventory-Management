@@ -20,8 +20,8 @@ const GetWarehouse = ({handleDeleteWarehouse}) => {
     <main>
       <h1>{warehouse.warehouseName}</h1>
       <h2>Capacity: {warehouse.capacity}</h2>
-      <Link aria-label="Update this warehouse" to={`/warehouses/warehouse/${warehouse.warehouseId}/update`} state={warehouse} className="linkTag">Update</Link>
-      <Link aria-label="Delete this warehouse" to={`/warehouses`} className="linkTag" onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
+      <Link aria-label="Update this warehouse" to={`/warehouses/warehouse/${warehouse.warehouseId}/update`} state={warehouse} className="linkTag" id="update-warehouse-btn">Update</Link>
+      <Link aria-label="Delete this warehouse" to={`/warehouses`} className="linkTag" id="delete-warehouse-btn" onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
     </main>
    );
 }
