@@ -46,7 +46,7 @@ const Items = ({items}) => {
             <option value="quantity">Quantity</option>
           </select>
       </div>
-        <table className={styles.itemTable}>
+        <table className={styles.itemTable} id="items-table">
           <thead>
             <tr>
               <th>Select</th>
