@@ -138,11 +138,11 @@ public class ItemsPage extends Page {
     public void tabTo(Actions actions, WebElement elementToTabTo){
         WebElement focusedElement = driver.switchTo().activeElement();
 
-        for (int i = 0; i < 10; i += 1) {
+        for (int i = 0; i < 10; i++) {
             if (elementToTabTo.equals(focusedElement)) {
                 break;
             }
-            actions.sendKeys(Keys.TAB).pause(Duration.ofMillis(200)).perform();
+            actions.sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).perform();
             focusedElement = driver.switchTo().activeElement();
         }
 
@@ -154,8 +154,8 @@ public class ItemsPage extends Page {
     }
 
     public void pressArrowKeyNTimes(Actions actions, Keys key, int n) {
-        for (int t = 0; t < n; t += 1) {
-            actions.sendKeys(key).pause(Duration.ofMillis(200)).perform();
+        for (int t = 0; t < n; t++) {
+            actions.sendKeys(key).pause(Duration.ofMillis(300)).perform();
         }
     }
 

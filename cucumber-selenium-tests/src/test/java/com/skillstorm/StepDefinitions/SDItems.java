@@ -53,6 +53,8 @@ public class SDItems {
         itemsPage.clickButton(ItemsPage.BTN_ADDITEM_NAME);
     }
 
+    // Accessibility When Steps
+
     @When("I select the Items Sort by dropdown option with text {string}")
     public void whenISelectTheItemsSortByDropdownOption(String selectOption) {
         this.itemsPage.selectSortBy(selectOption);
@@ -80,6 +82,8 @@ public class SDItems {
         this.itemsPage.pressArrowKeyNTimes(actions, Keys.ARROW_DOWN, 2);
         this.itemsPage.pressArrowKeyNTimes(actions, Keys.ARROW_UP, 1);
     }
+    
+    // Accessibility When Steps
 
     @Then("the items sort dropdown will be focused")
     public void thenTheItemsSortDropdownWillBeFocused() {
