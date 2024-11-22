@@ -1,12 +1,12 @@
 @warehouses-accessibility
 Feature: Warehouses Accessibility
 
-  Scenario: Dropdowns are tab-accessible
+  Scenario: Warehouse Sort Dropdowns are tab-accessible
     Given I am on the Warehouses page
     When I tab to the Warehouses Sort dropdown
     Then the warehouses sort dropdown will be focused
 
-  Scenario: Dropdown items are navigable via the up and down arrow keys
+  Scenario: Warehouse Sort Dropdown items are navigable via the up and down arrow keys
     Given I am on the Warehouses page
     And I am on the Warehouses Sort dropdown
     When I press the arrow key down two times and up one time on the Warehouses Sort dropdown
