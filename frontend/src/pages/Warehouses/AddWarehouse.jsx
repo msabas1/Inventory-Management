@@ -32,6 +32,7 @@ const AddWarehouse = (props) => {
                 onChange={handleChange}
                 placeholder="Enter warehouse name"
                 autoComplete="off"
+                id="add-warehouse-name-field"
               />
             </fieldset>
             <fieldset >
@@ -44,6 +45,7 @@ const AddWarehouse = (props) => {
                 onChange={handleChange}
                 placeholder="Enter warehouse capacity"
                 autoComplete="off"
+                id="add-warehouse-capacity-field"
               />
             </fieldset>
             <button aria-label="Submit Add Warehouse" type="submit" className="formButton" id="submit-add-warehouse-btn">Submit</button>
