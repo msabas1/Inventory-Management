@@ -81,6 +81,20 @@ public class SDWarehouses {
         driver.findElement(By.id("get-warehouse-link")).sendKeys(Keys.ENTER);
     }
 
+    @And("I fill out the Add Warehouse form using only the keyboard")
+    public void andIFillOutTheAddWarehouseFormUsingOnlyTheKeyboard(){
+        this.warehousesPage.tabTo(actions, driver.findElement(By.id("add-warehouse-name-field")));
+        actions.sendKeys("AccessibilityWarehouse");
+        this.warehousesPage.tabTo(actions, driver.findElement(By.id("add-warehouse-capacity-field")));
+        actions.sendKeys("111");
+    }
+
+    @And("I submit the filled out Add Warehouse form using only the keyboard")
+    public void andISubmitTheFilledOutAddWarehouseFormWithTheKeyboard(){
+        this.warehousesPage.tabTo(actions, driver.findElement(By.id("submit-add-warehouse-btn")));
+        driver.findElement(By.id("submit-add-warehouse-btn")).sendKeys(Keys.ENTER);
+    }
+
     @Then("I can see the add warehouse form modal")
     public void thenICanSeeTheAddWarehouseFormModal(){
         Assert.assertTrue(driver.findElement(By.id("add-warehouse-form-modal")).isDisplayed());
@@ -107,6 +121,11 @@ public class SDWarehouses {
         WebElement focusedElement = driver.switchTo().activeElement();
 
         Assert.assertEquals(warehousesSortDropdown, focusedElement);
+    }
+
+    @Then("I can see the newly added warehouse in the warehouses list")
+    public void thenICanSeeTheNewlyAddedWarehouseInTheWarehousesList(){
+        Assert.assertEquals(driver.findElement(By.id("warehouse-table-name")).getText(),"AccessibilityWarehouse");
     }
 
     @Then("I should see the second item in the Warehouses Sort dropdown highlighted")

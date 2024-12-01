@@ -22,3 +22,10 @@ Feature: Warehouses Accessibility
     Given I am on the Warehouses page
     When I tab to Navigate to a warehouse
     Then I can see the Update Warehouse button
+
+  Scenario: Add Warehouse by keyboard
+    Given I am on the Warehouses page
+    When I tab to click the Add Warehouses button
+    And I fill out the Add Warehouse form using only the keyboard
+    And I submit the filled out Add Warehouse form using only the keyboard
+    Then I can see the newly added warehouse in the warehouses list
