@@ -35,6 +35,7 @@ const AddItem = (props) => {
                 onChange={handleChange}
                 placeholder="Enter item name"
                 autoComplete="off"
+                id="add-item-name-field"
               />
             </fieldset>
           <fieldset>
@@ -47,6 +48,7 @@ const AddItem = (props) => {
                 onChange={handleChange}
                 placeholder="Enter item description"
                 autoComplete="off"
+                id="add-item-description-field"
               />
             </fieldset>
           <fieldset>
@@ -59,6 +61,7 @@ const AddItem = (props) => {
                 onChange={handleChange}
                 placeholder="Enter item price"
                 autoComplete="off"
+                id="add-item-price-field"
               />
             </fieldset>
           <fieldset>
@@ -71,11 +74,12 @@ const AddItem = (props) => {
                 onChange={handleChange}
                 placeholder="Enter item quantity"
                 autoComplete="off"
+                id="add-item-quantity-field"
               />
             </fieldset>
             <fieldset>
                 <legend>Warehouse ID</legend>
-                <select name="warehouse" onChange={handleChange}>
+                <select name="warehouse" onChange={handleChange} id="add-item-warehouseId-field">
                   <option value={formData.warehouseId}>--</option>
                   {props.warehouses.map(warehouse => (
                     <option key={warehouse.warehouseId} value={formData.warehouseId} onChange={handleChange}>{warehouse.warehouseId}</option>
