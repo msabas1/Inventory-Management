@@ -29,3 +29,9 @@ Feature: Warehouses Accessibility
     And I fill out the Add Warehouse form using only the keyboard
     And I submit the filled out Add Warehouse form using only the keyboard
     Then I can see the newly added warehouse in the warehouses list
+
+  Scenario: Delete newly added warehouse by keyboard
+    Given I am on the Warehouses page
+    When I tab to Navigate to the newly added warehouse
+    And I click the delete warehouse button
+    Then I cannot see the newly added warehouse in the warehouses list

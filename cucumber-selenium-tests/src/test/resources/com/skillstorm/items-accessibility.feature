@@ -29,3 +29,9 @@ Feature: Items Accessibility
         And I fill out the Add Item form using only the keyboard
         And I submit the filled out Add Item form using only the keyboard
         Then I can see the newly added item in the items list
+
+    Scenario: Delete newly added item by keyboard
+        Given I am on the Items page
+        When I tab to Navigate to the newly added item
+        And I click the delete item button
+        Then I cannot see the newly added item in the items list
