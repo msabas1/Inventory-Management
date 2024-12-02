@@ -22,3 +22,10 @@ Feature: Items Accessibility
         Given I am on the Items page
         When I tab to Navigate to a item
         Then I can see the Update Item button
+
+    Scenario: Add Item by keyboard
+        Given I am on the Items page
+        When I tab to click the Add Items button
+        And I fill out the Add Item form using only the keyboard
+        And I submit the filled out Add Item form using only the keyboard
+        Then I can see the newly added item in the items list

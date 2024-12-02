@@ -82,6 +82,26 @@ public class SDItems {
         this.itemsPage.pressArrowKeyNTimes(actions, Keys.ARROW_DOWN, 2);
         this.itemsPage.pressArrowKeyNTimes(actions, Keys.ARROW_UP, 1);
     }
+
+    @And("I fill out the Add Item form using only the keyboard")
+    public void andIFillOutTheAddItemFormUsingOnlyTheKeyboard(){
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("add-item-name-field")));
+        actions.sendKeys("AccessibilityItem");
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("add-item-description-field")));
+        actions.sendKeys("Accessibility item description");
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("add-item-price-field")));
+        actions.sendKeys("100");
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("add-item-quantity-field")));
+        actions.sendKeys("5");
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("add-item-warehouseId-field")));
+        this.itemsPage.pressArrowKeyNTimes(actions, Keys.ARROW_DOWN, 1);
+    }
+
+    @And("I submit the filled out Add Item form using only the keyboard")
+    public void andISubmitTheFilledOutAddItemFormWithTheKeyboard(){
+        this.itemsPage.tabTo(actions, driver.findElement(By.id("submit-add-item-btn")));
+        driver.findElement(By.id("submit-add-item-btn")).sendKeys(Keys.ENTER);
+    }
     
     // Accessibility When Steps
 
@@ -119,6 +139,11 @@ public class SDItems {
     @Then("I can see the Add Item button")
     public void thenICanSeeTheAddItemButton(){
         Assert.assertTrue(driver.findElement(By.id("add-item-btn")).isDisplayed());
+    }
+
+    @Then("I can see the newly added item in the items list")
+    public void thenICanSeeTheNewlyAddedItemInTheItemsList(){
+        Assert.assertEquals(driver.findElement(By.id("item-table-name")).getText(),"AccessibilityItem");
     }
 
     @And("I can see the Items Sort By dropdown")
