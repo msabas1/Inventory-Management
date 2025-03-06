@@ -24,7 +24,7 @@ const AddItem = (props) => {
       <main >
         <h1>Add Item</h1>
         <div>
-          <form onSubmit={handleSubmit} id="add-item-form-modal">
+          <form onSubmit={handleSubmit} id="add-item-form-modal" aria-label="add-item-form">
           <fieldset>
               <legend>Name</legend>
               <input
@@ -79,7 +79,7 @@ const AddItem = (props) => {
             </fieldset>
             <fieldset>
                 <legend>Warehouse ID</legend>
-                <select name="warehouse" onChange={handleChange} id="add-item-warehouseId-field">
+                <select name="warehouse" onChange={handleChange} id="add-item-warehouseId-field" aria-label="select-warehouse-id-option">
                   <option value={formData.warehouseId}>--</option>
                   {props.warehouses.map(warehouse => (
                     <option key={warehouse.warehouseId} value={formData.warehouseId} onChange={handleChange}>{warehouse.warehouseId}</option>
