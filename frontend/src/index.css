@@ -12,10 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --button-color: rgb(255, 255, 255);
+  --button-color: #54a361;
   --button-color-hover: #61c071;
-  --background-color: rgb(61, 61, 61);
-  --table-head-color: #61c071;
+  --background-color: #333333;
+  --table-head-color: #2b6435;
   --input-color: #222222;
   --table-row-color: rgba(248, 248, 248, 0.653);
   --font-second-color: rgb(139, 149, 211);
@@ -63,7 +63,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.formButton{
+  background-color: #2b6435;
+}
+
 .linkTag{
+  color: var(--font-primary-color);
   border-radius: 8px;
   border: 1px solid rgb(255, 255, 255);
   padding: 10px 15px;
