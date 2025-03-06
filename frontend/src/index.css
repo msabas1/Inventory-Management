@@ -95,7 +95,7 @@ button:focus-visible {
 table{
   margin-top: 50px;
   border: 2px solid var(--background-color);
-  width: 100%;
+  width: auto;
 }
 th{
   background-color: var(--table-head-color);

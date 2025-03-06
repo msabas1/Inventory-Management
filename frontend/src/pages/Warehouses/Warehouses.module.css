@@ -7,7 +7,7 @@
   margin-top: 50px;
   border: 3px solid #222222;
   border-collapse: collapse;
-  width: 90%;
+  width: auto;
 }
 th,td{
   border: 3px solid rgb(255, 255, 255);
