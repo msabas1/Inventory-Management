@@ -3,13 +3,13 @@
 This full-stack inventory management solution allows you to manage warehouses and their items (CRUD operations)!
 
 ## Home Preview
-![WarehouseFleetHome](https://github.com/user-attachments/assets/97f5d06a-c4c9-434b-be55-4b81cd629781)
+![WarehouseFleetLanding](https://github.com/user-attachments/assets/a65a6527-d3f6-4a2d-9e3b-b045d65204cc)
 
 ## Warehouses Preview
-![WarehouseFleetWarehousesPage](https://github.com/user-attachments/assets/64de21cd-cbf2-4d3c-976c-a94138d81d57)
+![WarehouseFleetWarehouses](https://github.com/user-attachments/assets/5897b3b5-5994-4389-81f0-df114f5bbd12)
 
 ## Items Preview
-![WarehouseFleetItems](https://github.com/user-attachments/assets/105bd1f4-4c58-4fbd-ad5f-801f2dd10f19)
+![WarehouseFleetItems](https://github.com/user-attachments/assets/1bf14a40-26d8-47b9-8ce9-86b133c4bf92)
 
 
 ## Technologies utilized:
